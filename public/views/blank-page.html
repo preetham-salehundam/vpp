@@ -1,0 +1,1189 @@
+<div>
+<px-card header-text class="u-pb- u-pt- u-pr-- u-mb0 brdbtm">
+	<div class="float--left" style="width:50%">
+		<h5 class="epsilon u-ml0 u-mt0 u-pt- u-mb-">Configuration and Design</h5>
+	</div>
+</px-card>
+<px-card header-text class="u-pb0 u-pr0 bgktran u-mb0 u-pl-">
+	<div class="layout full-height">
+		<div class="layout__item u-p u-pt+ u-pr0 u-pb0 u-1/1 bgw u-mb0" id="">
+			<demo-custom-tabs></demo-custom-tabs>		
+		</div> 
+			<div class="layout__item u-p u-pt+ u-pb0 u-pr0 u-pl0 u-1/3" id="sitedata">
+				<div class="u-ml+">
+						<div class="sitesumm">
+							<legend>Site Specific Data Summary</legend>
+							<span>Altitude: +40m</span></br>
+							<span>Latitude: N35.70903°</span></br>
+							<span>Longitude: E139.73199°</span></br>
+							<span>Mean Temperature: +30° (Range +24° to + 31°)</span></br>
+							<span>Mean Relative Humidity: 50% (Range 44% to 63%)</span></br>
+					</div>			
+				</div>
+				<hr>
+				<div class="u-mt++ u-ml+">
+					<div class="sitesumm">
+						<legend>Monthly Averages</legend>
+						<img SRC="../stylesheets/Chart.png" alt="Chart">
+					</div>			
+				</div>
+			</div>
+			
+		</div>
+</px-card>	
+<dom-module id="demo-custom-tabs">
+	<template>
+		<section>
+			<px-card header-text class="u-pb0 u-pr0 u-mb0 u-mr0">
+				<!-- <div class="float--left" style="width:50%"> -->
+					<px-tab-set id="tab-set"  bare="true" selected="{{selected}}">
+						<px-tab id="tab1">Site Information</px-tab>
+						<px-tab id="tab2">Profile and Financial Data</px-tab>
+						<px-tab id="tab3">Project KPI's</px-tab>
+						<px-tab id="tab4">Configurator</px-tab>
+						<px-tab id="tab5">Solutions</px-tab>
+						<px-tab id="tab6">Final Solution</px-tab>
+					</px-tab-set>
+					<px-tab-pages selected="{{selected}}">
+						<div class="u-ml+">
+						  <div class="custscrol tabscroll">
+							<form class="config">
+							  <fieldset class="form-field u-pt- u-mb0">
+								<h5 class="epsilon u-mb0 u-mt+ u-ml- fntnrm">Site Information</h5>
+								<div class="float--left u-mt+ u-ml-"style="width:100%">
+									<ol class="list-bare siteinfo"> 
+										<li class="form-field u-mb+">
+											<legend class="u-m- u-mb-- u-ml0">Ambient Temperature</legend>
+												<span class="form-field input-group">
+												  <input class="text-input input--regular fnt12" type="text" placeholder="30">
+												  <span class="">
+													<select class="custsele">
+														<option>°C</option>
+														<option>°F</option>
+													</select>
+												  </span>
+											  </span>
+										</li>
+										<li class="form-field u-mb+" style="width:26% !important;">
+											<legend class="u-m- u-mb-- u-ml0">Relative humidity</legend>
+												<span class="form-field input-group">
+												  <input class="text-input input--regular fnt12" type="text" placeholder="75">
+												  <span class="">
+													<select class="custsele">
+														<option>%</option>
+														<option>Fraction</option>
+													</select>
+												  </span>
+											  </span>
+										</li>
+										<li class="form-field u-mb+">
+											<legend class="u-m- u-mb-- u-ml0">Ambient Pressure</legend>
+												<span class="form-field input-group">
+												  <input class="text-input input--regular fnt12" type="text" placeholder="14.7">
+												  <span class="">
+													<select class="custsele">
+														<option>Psia</option>
+														<option>bar</option>
+														<option>Kpa</option>
+													</select>
+												  </span>
+											  </span>
+										</li>
+										<li class="form-field u-mb+" style="width:23% !important;">
+											<legend class="u-m- u-mb-- u-ml0">Soil Type</legend>
+											<select class="custsele">
+												<option>Clay</option>
+												<option>Gravel and Sand</option>
+												<option>Rock</option>
+												<option>Chalk</option>
+												<option>Peat</option>
+												<option>Filled Ground</option>
+											</select>
+										</li>
+										<li class="form-field u-mb+">
+											<legend class="u-m- u-mb-- u-ml0">Water Availability </legend>
+											<span class="form-field input-group">
+												<input id="inline1" name="waterava" type="radio">
+													<label class="label--inline vrtaligntop" for="inline1">No</label>
+													<input id="inline2" class="u-ml+" name="waterava" type="radio">
+													<label class="label--inline vrtaligntop" for="inline2">Yes</label>
+											</span>
+										</li>
+										<li class="form-field u-mb+" style="width:36% !important;">
+											<legend class="u-m- u-mb-- u-ml0">Fuel Price</legend>
+												<span class="form-field input-group">
+												  <input class="text-input input--regular fnt12" type="text" placeholder="5">
+												  <span class="">
+													<select class="custsele">
+														<option>USD/MMBtu HHV</option>
+														<option>USD/GJ HHV</option>
+													</select>
+												  </span>
+											  </span>
+										</li>
+										<li class="form-field u-mb+">
+											<legend class="u-m- u-mb-- u-ml0">Labour Price</legend>
+											  <span class="form-field input-group">
+												  <input class="text-input input--regular fnt12" type="text" placeholder="15">
+												  <span class="input-group__addon fnt12">USD/hr</span>
+											  </span>
+										</li>
+									</ol>
+								</div>
+							  </fieldset>
+						</form>
+							<form class="config">
+								  <fieldset class="form-field u-pt- u-mb--">
+									<h5 class="epsilon u-mb0 u-mt- u-ml- fntnrm">Plant Requirements</h5>
+									<div class="float--left u-mt+ u-ml-"style="width:100%">
+										<ol class="list-bare plantinfo"> 
+											<li class="form-field u-mb+ u-mr+">
+												<legend class="u-m- u-mb-- u-ml0">Plant Type</legend>
+												<select class="custsele">
+													<option>Simple-Cycle</option>
+													<option>Combined-Cycle</option>
+													<option>Cogeneration</option>
+												</select>
+											</li>
+											<li class="form-field u-mb+">
+												<legend class="u-m- u-mb-- u-ml0">Commerical Operation Date</legend>
+												<select class="custsele"><option>Q3 2010</option></select>	
+											</li>
+										</ol>
+									</div>
+								  </fieldset>
+							</form>
+							<form class="config">
+								  <fieldset class="form-field u-pt- u-mb--">
+									<div class="float--left u-mt0 u-ml-"style="width:100%">
+										<ol class="list-bare plantinfo"> 
+											<li class="form-field u-mb+" style="width:30% !important;">
+												<legend class="u-m- u-mb-- u-ml0">Power</legend>
+													<span class="form-field input-group">
+														  <input class="text-input input--regular fnt12" type="text" placeholder="500">
+														  <span class="input-group__addon fnt12">MW</span>
+													</span>
+											</li>
+											<li class="form-field u-mb+ u-mr+" style="width:40% !important;">
+												<legend class="u-m- u-mb-- u-ml0">Power Range (MW)</legend>
+												<px-slider class="custpxslide" value="00.00" min="0.00" max="75.00" step="1.00" start-value="0.00" end-value="75.00"></px-slider>	
+											</li>
+											<li class="form-field u-mb+" style="width:25% !important;">
+												<legend class="u-m- u-mb-- u-ml0">Power Factor</legend>
+												<select class="custsele">
+													<option>0.8</option>
+													<option>0.85</option>
+													<option>0.9</option>
+													<option>1.0</option>
+												</select>	
+											</li>
+										</ol>
+									</div>
+								  </fieldset>
+							</form>
+							<form class="config">
+								  <fieldset class="form-field u-pt- u-mb+">
+									<div class="float--left u-mt0 u-ml-"style="width:100%">
+										<ol class="list-bare plantinfo"> 
+											<li class="form-field u-mb+ u-mr+" style="width:30% !important;">
+												<legend class="u-m- u-mb-- u-ml0">Operating Hours (Per Year)</legend>
+												<span class="form-field input-group">
+														  <input class="text-input input--regular fnt12" type="text" placeholder="6500">
+													</span>
+											</li>
+											<li class="form-field u-mb+ u-mr+" style="width:30% !important;">
+												<legend class="u-m- u-mb-- u-ml0">Cooling Water Systems</legend>
+												<select class="custsele">
+													<option>Water-Cooled Condenser Cooling tower</option>
+													<option>Water-cooled Condenser Direct Cooling</option>
+													<option>Air-Cooled Condenser</option>
+												</select>	
+											</li>
+											<li class="form-field u-mb+" style="width:30% !important;">
+												<legend class="u-m- u-mb-- u-ml0">Numbers of Starts per year</legend>
+												<input class="text-input input--regular fnt12" type="text" placeholder="100">
+											</li>
+										</ol>
+									</div>
+								  </fieldset>
+							</form>
+							<form class="config">
+								  <fieldset class="form-field u-pt- u-mb0">
+								  <h5 class="epsilon u-mb0 u-mt0 u-ml- fntnrm">Optional Inputs</h5>
+									<div class="float--left u-mt+ u-ml-"style="width:100%">
+										<ol class="list-bare plantinfo"> 
+											<li class="form-field u-mb+ u-mr+" style="width:37% !important;">
+												<legend class="u-m- u-mb-- u-ml0">Weighted Average Design Analysis</legend>
+												<input class="text-input input--regular fnt12" type="text">
+											</li>
+											<li class="form-field u-mb+ u-mr0" style="width:31% !important;">
+												<legend class="u-m- u-mb-- u-ml0">Amount of Water</legend>
+												<span class="form-field input-group">
+													  <input class="text-input input--regular fnt12" type="text" placeholder="500">
+													  <span class="">
+														<select class="custsele">
+															<option>L/day</option>
+															<option>Gallon/day</option>
+														</select>
+													  </span>
+												  </span>	
+											</li>
+											<li class="form-field u-mb+" style="width:29% !important;">
+												<legend class="u-m- u-mb-- u-ml0">Footprint</legend>
+												<span class="form-field input-group">
+													  <input class="text-input input--regular fnt12" type="text" placeholder="500">
+													  <span class="">
+														<select class="custsele">
+															<option>Acres</option>
+															<option>ft²</option>
+															<option>m²</option>
+															<option>Km²</option>
+														</select>
+													  </span>
+												  </span>
+											</li>
+										</ol>
+									</div>
+								  </fieldset>
+							</form>
+							<form class="config">
+								  <fieldset class="form-field u-pt- u-mb+">
+									<div class="float--left u-mt+ u-ml-"style="width:100%">
+										<ol class="list-bare plantinfo"> 
+											<li class="form-field u-mb+ u-mr+" style="width:30% !important;">
+												<legend class="u-m- u-mb-- u-ml0">No Emissions</legend>
+												<span class="form-field input-group">
+												  <input class="text-input input--regular fnt12" type="text" placeholder="25">
+												  <span class="input-group__addon fnt12">ppm</span>
+											  </span>
+											</li>
+											<li class="form-field u-mb+" style="width:30% !important;">
+												<legend class="u-m- u-mb-- u-ml0">Noise Limits</legend>
+												<span class="form-field input-group">
+												  <input class="text-input input--regular fnt12" type="text" placeholder="85">
+												  <span class="input-group__addon fnt12">Dba</span>
+											  </span>
+											</li>
+										</ol>
+									</div>
+								  </fieldset>
+							</form>
+							</div>
+							<div class="float--left u-pt+ u-pb+ bgw u-mb+ u-mt+ navigate" style="width:100%">
+								<hr>
+								<button class="btn btn--small btn--primary nxtbtn fnt14 float--right btnprm u-mr-" type="button" id="nxt" ng-click="">Next</button>
+								<button class="btn btn--small fnt14 float--left btnprm u-ml0" type="button" id="" ng-click="">Back</button>
+						</div>	
+						</div>
+						<div class="u-ml+ profilefin">
+							<div class="custscrol tabscroll">
+							<form class="config">
+							  <fieldset class="form-field u-pt- u-mb0">
+								<h5 class="epsilon u-mb0 u-mt+ u-ml- fntnrm">Business Profile</h5>
+								<div class="float--left u-mt+ u-ml-"style="width:100%">
+									<ol class="list-bare siteinfo"> 
+										<li class="form-field u-mb+" style="width:50% !important;">
+											<legend class="u-m- u-mb-- u-ml0">Select your market or industry for the plant:</legend>
+										</li>
+										<li class="form-field u-mb+" style="width:45% !important;">
+												<span class="form-field input-group">
+													<select class="custsele">
+														<option>Industrial</option>
+														<option>Goverment</option>
+														<option>Utility/IPP Non-Regulated</option>
+														<option>Utility/IPP Regulated</option>
+													</select>
+											  </span>
+										</li>
+									</ol>
+								</div>
+							  </fieldset>
+						</form>
+							<form class="config">
+								  <fieldset class="form-field u-pt- u-mb--">
+									<div class="float--left u-mt+ u-ml-"style="width:100%">
+										<ol class="list-bare plantinfo"> 
+											<li class="form-field u-mb+ u-mr++" style="width:40% !important;">
+												<legend class="u-m- u-mb-- u-ml0">Do you have a spinning reserve?</legend>
+													<span class="vrtmd"><input id="inline1" name="spinres" type="radio">
+													<label class="label--inline vrtaligntop" for="inline1">No</label>
+													<input id="inline2" class="u-ml+" name="spinres" type="radio">
+													<label class="label--inline vrtaligntop" for="inline2">Yes</label></span>
+												  <span class="form-field input-group float--right" style="width:45% !important;">
+													  <input class="text-input input--regular fnt12" type="text" placeholder="0">
+													  <span class="input-group__addon fnt12">$/MWh</span>
+												  </span>
+											</li>
+											<li class="form-field u-mb+" style="width:40% !important;">
+												<legend class="u-m- u-mb-- u-ml0">Do you have a Capacity Payments?</legend>
+													<span class="vrtmd"><input id="inline1" name="cappaym" type="radio">
+													<label class="label--inline vrtaligntop" for="inline1">No</label>
+													<input id="inline2" class="u-ml+" name="cappaym" type="radio">
+													<label class="label--inline vrtaligntop" for="inline2">Yes</label></span>
+												  <span class="form-field input-group float--right" style="width:45% !important;">
+													  <input class="text-input input--regular fnt12" type="text" placeholder="0">
+													  <span class="input-group__addon fnt12">$/MW-Day</span>
+												  </span>
+											</li>
+											<li class="form-field u-mb+ u-mr++" style="width:40% !important;">
+												<legend class="u-m- u-mb-- u-ml0">Do you have a availability guarantees?</legend>
+													<span class="vrtmd"><input id="inline1" name="avagurn" type="radio">
+													<label class="label--inline vrtaligntop" for="inline1">No</label>
+													<input id="inline2" class="u-ml+" name="avagurn" type="radio">
+													<label class="label--inline vrtaligntop" for="inline2">Yes</label></span>
+												  <span class="form-field input-group float--right" style="width:45% !important;">
+													  <input class="text-input input--regular fnt12" type="text" placeholder="0">
+													  <span class="input-group__addon fnt12">%</span>
+												  </span>
+											</li>
+											<li class="form-field u-mb+" style="width:40% !important;">
+												<legend class="u-m- u-mb-- u-ml0">Do you have a summer peak needs?</legend>
+													<span class="vrtmd"><input id="inline1" name="sumpek" type="radio">
+													<label class="label--inline vrtaligntop" for="inline1">No</label>
+													<input id="inline2" class="u-ml+" name="sumpek" type="radio">
+													<label class="label--inline vrtaligntop" for="inline2">Yes</label></span>
+												  <span class="form-field input-group float--right" style="width:45% !important;">
+													  <input class="text-input input--regular fnt12" type="text" placeholder="0">
+													  <span class="input-group__addon fnt12">$ Overfire</span>
+												  </span>
+											</li>
+										</ol>
+									</div>
+								  </fieldset>
+							</form>
+							<form class="config">
+								  <fieldset class="form-field u-pt- u-mb--">
+								  <h5 class="epsilon u-mb0 u-mt- u-ml- fntnrm">Financial Data</h5>
+									<div class="float--left u-mt+ u-ml-"style="width:100%">
+										<ol class="list-bare plantinfo"> 
+											<li class="form-field u-mb+" style="width:25% !important;">
+												<legend class="u-m- u-mb-- u-ml0">PowerPrice</legend>
+													<span class="form-field input-group" style="width:83% !important;">
+													  <input class="text-input input--regular fnt12" type="text" placeholder="40">
+													  <span class="input-group__addon fnt12">$/MHh</span>
+												  </span>
+											</li>
+											<li class="form-field u-mb+" style="width:25% !important;">
+												<legend class="u-m- u-mb-- u-ml0">Tax Rate</legend>
+													<span class="form-field input-group">
+													  <input class="text-input input--regular fnt12" type="text" placeholder="5">
+													  <span class="input-group__addon fnt12">%</span>
+												  </span>
+											</li>
+											<li class="form-field u-mb+" style="width:25% !important;">
+												<legend class="u-m- u-mb-- u-ml0">Evaluation Term</legend>
+													<span class="form-field input-group">
+													  <input class="text-input input--regular fnt12" type="text" placeholder="5">
+													  <span class="input-group__addon fnt12">Years</span>
+												  </span>
+											</li>
+											<li class="form-field u-mb+" style="width:25% !important;">
+												<legend class="u-m- u-mb-- u-ml0">Evaluation Rate</legend>
+													<span class="form-field input-group">
+													  <input class="text-input input--regular fnt12" type="text" placeholder="2">
+													  <span class="input-group__addon fnt12">%</span>
+												  </span>
+											</li>
+											<li class="form-field u-mb+" style="width:70% !important;">
+												<legend class="u-m- u-mb-- u-ml0">Enter your Weighted Average Cost of Capital or calculate it below:</legend>
+													<span class="form-field input-group" style="width:92% !important;">
+													  <input class="text-input input--regular fnt12" type="text" placeholder="50">
+													  <span class="input-group__addon fnt12 u-mr++">%/yr</span>
+										<px-modal btn-modal-positive="Calculate" btn-modal-negative="Close" modal-heading="Calculate Weighted Average Cost of Capital" scrolling-disabled="true">
+										<button class="btn btn--small btn--primary modal-trigger nxtbtn fnt14 float--right btnprm u-ml-" type="button" id="" ng-click="">Calculate Weighted  Average Cost of Capital</button>
+										<form class="config">
+										  <fieldset class="form-field u-pt- u-mb0">
+											<legend class="u-mb--">Calculate Weighted Average Cost of Capital</legend>
+											<div class="float--left u-mt+ u-ml-"style="width:100%">
+												<ol class="list-bare wid100"> 
+													<li class="form-field u-mb+" style="width:100%">
+														<span class="form-field input-group" style="width:36% !important;">
+														  <input class="text-input input--regular fnt12" type="text" placeholder="0%">
+														  <span class="input-group__addon fnt12">Long-Term Debt To Capitalization</span>
+													  </span>
+													</li>
+													<li class="form-field u-mb+" style="width:100%">
+														<span class="form-field input-group" style="width:36% !important;">
+														  <input class="text-input input--regular fnt12" type="text" placeholder="0%">
+														  <span class="input-group__addon fnt12">Debt Interest Rates % by Year</span>
+													  </span>
+													</li>
+													<li class="form-field u-mb+" style="width:100%">
+														<span class="form-field input-group" style="width:36% !important;">
+														  <input class="text-input input--regular fnt12" type="text" placeholder="0%">
+														  <span class="input-group__addon fnt12">Target Equity Return (After Tax)</span>
+													  </span>
+													</li>
+												</ol>
+											</div>
+										  </fieldset>
+									</form>
+										
+										</px-modal>			  
+													  
+												  </span>
+											</li>
+										</ol>
+									</div>
+								  </fieldset>
+							</form>
+							<form class="config">
+								  <fieldset class="form-field u-pt- u-mb0">
+								  <h5 class="epsilon u-mb0 u-mt- u-ml- fntnrm">Optional Inputs</h5>
+									<div class="float--left u-mt+ u-ml-"style="width:100%">
+										<ol class="list-bare plantinfo"> 
+											<li class="form-field u-mb+ u-mr+" style="width:30% !important;">
+												<span class="vrtmd">
+													<input id="inline1" name="" type="checkbox" id="peakonoff" ng-model="ModelData.peakonoff">
+													<label class="label--inline vrtaligntop" for="inline1">On/Off Peak Power Price</label>
+												</span>
+											</li>
+											<li class="form-field u-mb+ u-mr+" style="width:45% !important;">
+												<span class="vrtmd">
+													<input id="inline2" class="u-ml+" name="" type="checkbox" id="worksheet" ng-model="ModelData.worksheet">
+													<label class="label--inline vrtaligntop" for="inline2">Power Price Profile worksheet</label></span>
+											</li>
+										</ol>
+									</div>
+								  </fieldset>
+							</form>
+							<form class="config" ng-show="ModelData.peakonoff">
+								  <fieldset class="form-field u-pt- u-mb+">
+									<div class="float--left u-mt0 u-ml-"style="width:100%">
+										<ol class="list-bare plantinfo"> 
+											<li class="form-field u-mb+ u-mr+" style="width:30% !important;">
+												<legend class="u-m- u-mb-- u-ml0">Price of Power (On-Peak)</legend>
+												<span class="form-field input-group">
+													  <input class="text-input input--regular fnt12" type="text">
+													  <span class="">
+														<select class="custsele"><option>$/MWh</option></select>
+													  </span>
+												  </span>	
+											</li>
+											<li class="form-field u-mb+" style="width:30% !important;">
+												<legend class="u-m- u-mb-- u-ml0">Price of Power (Off-Peak)</legend>
+												<span class="form-field input-group">
+													  <input class="text-input input--regular fnt12" type="text">
+													  <span class="">
+														<select class="custsele"><option>$/MWh</option></select>
+													  </span>
+												  </span>
+											</li>
+										</ol>
+									</div>
+								  </fieldset>
+							</form>
+							<div class="u-mr-" ng-show="ModelData.worksheet">
+								<table class="table table-striped pftab">
+											<thead>
+												<tr>
+												<th width="" style="" colspan=""><b class="">Years</b></th>
+												<th width="" style="" colspan="" class=""><b>0</b></th>
+												<th width="" style="" colspan="" class=""><b>1</b></th>
+												<th width="" style="" colspan="" class=""><b>2</b></th>
+												<th width="" style="" colspan="" class=""><b>3</b></th>
+												<th width="" style="" colspan="" class=""><b>4</b></th>
+												<th width="" style="" colspan="" class=""><b>5</b></th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Price of Fuel $/MMBtu(HHV)</td>
+													<td class="">4.78</td>
+													<td class="">4.78</td>
+													<td class="">4.78</td>
+													<td class="">4.78</td>
+													<td class="">4.78</td>
+													<td class="">4.78</td>
+												</tr>
+												<tr>
+													<td>Price of Power $/MWh</td>
+													<td class="">40.3</td>
+													<td class="">40.3</td>
+													<td class="">40.3</td>
+													<td class="">40.3</td>
+													<td class="">40.3</td>
+													<td class="">40.3</td>
+												</tr>
+												<tr>
+													<td>Weighted Average Cost of Capital %/yr</td>
+													<td class="">14.3</td>
+													<td class="">14.3</td>
+													<td class="">14.3</td>
+													<td class="">14.3</td>
+													<td class="">14.3</td>
+													<td class="">14.3</td>
+												</tr>												
+											</tbody>
+									</table>
+							</div>
+						</div>
+						<div class="float--left u-pt+ u-pb+ bgw u-mb+ u-mt+ navigate" style="width:100%">
+								<hr>
+								<button class="btn btn--small btn--primary nxtbtn fnt14 float--right btnprm u-mr-" type="button" id="nxt" ng-click="">Next</button>
+								<button class="btn btn--small fnt14 float--left btnprm u-ml0" type="button" id="" ng-click="">Back</button>
+						</div>						
+						</div>
+						<div class="prjkpi u-ml+">
+							<form class="">
+							  <fieldset class="form-field u-pt- u-mb0">
+								<h5 class="epsilon u-mb0 u-mt+ u-ml- fntnrm">Rank your level of Importance</h5>
+								<div class="float--left u-mt+ u-ml-" style="width:100%">
+									<div class="float--left" style="width:100%">
+										<ol class="list-bare pk"> 
+											<li class="form-field u-mb+ input-group">
+												<span class="input-group__addon count">1</span>
+												<input class="text-input" type="text" placeholder="Footprint">
+												<span class="input-group__addon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<span class="input-group__addon count">2</span>
+												<input class="text-input" type="text" placeholder="Construction Schedule">
+												<span class="input-group__addon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<span class="input-group__addon count">3</span>
+												<input class="text-input" type="text" placeholder="Installation Cost">
+												<span class="input-group__addon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<span class="input-group__addon count">4</span>
+												<input class="text-input" type="text" placeholder="Availability">
+												<span class="input-group__addon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<span class="input-group__addon count">5</span>
+												<input class="text-input" type="text" placeholder="Startup Time">
+												<span class="input-group__addon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<span class="input-group__addon count">6</span>
+												<input class="text-input" type="text" placeholder="Emissions">
+												<span class="input-group__addon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<span class="input-group__addon count">7</span>
+												<input class="text-input" type="text" placeholder="Overall Reliability">
+												<span class="input-group__addon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<span class="input-group__addon count">8</span>
+												<input class="text-input" type="text" placeholder="Lifecycle Cost">
+												<span class="input-group__addon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<span class="input-group__addon count">9</span>
+												<input class="text-input" type="text" placeholder="Efficiency">
+												<span class="input-group__addon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<span class="input-group__addon count">10</span>
+												<input class="text-input" type="text" placeholder="Output">
+												<span class="input-group__addon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+											</li>
+										</ol>
+									</div>
+									<h5 class="epsilon u-mb- u-mt+ u-ml- fntnrm fnt14">Weight each ranked KPI <span class="fnt10 u-ml--">Total weight must equal 100%</span></h5>
+									<div class="float--left" style="width:100%">
+										<ol class="list-bare kpi"> 
+											<li class="form-field u-mb0 input-group">
+												<input class="text-input plchldcnt" type="text" placeholder="0%">
+											</li>
+											<li class="form-field u-mb0 input-group">
+												<input class="text-input plchldcnt" type="text" placeholder="0%">
+											</li>
+											<li class="form-field u-mb0 input-group">
+												<input class="text-input plchldcnt" type="text" placeholder="0%">
+											</li>
+											<li class="form-field u-mb0 input-group">
+												<input class="text-input plchldcnt" type="text" placeholder="0%">
+											</li>
+											<li class="form-field u-mb0 input-group">
+												<input class="text-input plchldcnt" type="text" placeholder="0%">
+											</li>
+											<li class="form-field u-mb0 input-group">
+												<input class="text-input plchldcnt" type="text" placeholder="0%">
+											</li>
+											<li class="form-field u-mb0 input-group">
+												<input class="text-input plchldcnt" type="text" placeholder="0%">
+											</li>
+											<li class="form-field u-mb0 input-group">
+												<input class="text-input plchldcnt" type="text" placeholder="0%">
+											</li>
+											<li class="form-field u-mb0 input-group">
+												<input class="text-input plchldcnt" type="text" placeholder="0%">
+											</li>
+											<li class="form-field u-mb0 input-group">
+												<input class="text-input plchldcnt" type="text" placeholder="0%">
+											</li>
+										</ol>
+									</div>
+									<div class="float--left" style="width:100%">
+										<ol class="list-bare kpi"> 
+											<li class="form-field u-mb+ input-group">
+												<span class="input-group__addon count kpinum">1</span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<span class="input-group__addon count kpinum">2</span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<span class="input-group__addon count kpinum">3</span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<span class="input-group__addon count kpinum">4</span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<span class="input-group__addon count kpinum">5</span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<span class="input-group__addon count kpinum">6</span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<span class="input-group__addon count kpinum">7</span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<span class="input-group__addon count kpinum">8</span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<span class="input-group__addon count kpinum">9</span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<span class="input-group__addon count kpinum">10</span>
+											</li>
+										</ol>
+									</div>
+									<h5 class="epsilon u-mb- u-mt+ u-ml- fntnrm fnt14">Drag the KPI's and Rank your level of Importance</h5>
+									<div class="float--left" style="width:100%">
+										<ol class="list-bare pk drag"> 
+											<li class="form-field u-mb+ input-group">
+												<input class="text-input" type="text" placeholder="Lifecycle Cost" disabled>
+												<span class="input-group__addon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<input class="text-input" type="text" placeholder="Startup Time" disabled>
+												<span class="input-group__addon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<input class="text-input" type="text" placeholder="Installation Cost" disabled>
+												<span class="input-group__addon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<input class="text-input" type="text" placeholder="Emissions" disabled>
+												<span class="input-group__addon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<input class="text-input" type="text" placeholder="Overall Reliability" disabled>
+												<span class="input-group__addon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<input class="text-input" type="text" placeholder="Construction Schedule" disabled>
+												<span class="input-group__addon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<input class="text-input" type="text" placeholder="Output" disabled>
+												<span class="input-group__addon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<input class="text-input" type="text" placeholder="Availability" disabled>
+												<span class="input-group__addon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<input class="text-input" type="text" placeholder="Lifecycle Cost" disabled>
+												<span class="input-group__addon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<input class="text-input" type="text" placeholder="Efficiency" disabled>
+												<span class="input-group__addon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<input class="text-input" type="text" placeholder="Footprint" disabled>
+												<span class="input-group__addon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<input class="text-input" type="text" placeholder="Emissions" disabled>
+												<span class="input-group__addon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<input class="text-input" type="text" placeholder="Emissions" disabled>
+												<span class="input-group__addon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<input class="text-input" type="text" placeholder="Overall Reliability" disabled>
+												<span class="input-group__addon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<input class="text-input" type="text" placeholder="Construction Schedule" disabled>
+												<span class="input-group__addon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<input class="text-input" type="text" placeholder="Output" disabled>
+												<span class="input-group__addon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<input class="text-input" type="text" placeholder="Availability" disabled>
+												<span class="input-group__addon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+											</li>
+											<li class="form-field u-mb+ input-group">
+												<input class="text-input" type="text" placeholder="Lifecycle Cost" disabled>
+												<span class="input-group__addon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+											</li>
+										</ol>
+									</div>
+								</div>
+							  </fieldset>
+						</form>	
+						<div class="float--left u-pt+ u-pb+ bgw u-mb+ u-mt+ navigate" style="width:100%">
+						<hr>
+									<button class="btn btn--small btn--primary nxtbtn fnt14 float--right btnprm u-mr-" type="button" id="nxt" ng-click="">Start Configuration</button>
+									<button class="btn btn--small fnt14 float--left btnprm u-ml0" type="button" id="" ng-click="">Back</button>
+						</div>
+						</div>
+						<div class="u-ml+ u-mb+ float--left wid100 padrgt15">
+							<h5 class="epsilon u-mb- u-ml- fntnrm mrgtop15">Review recommended Case and create additional Cases</h5>
+						<div class="brdblk pad10 float--left wid100">
+							<form class="config">
+							  <fieldset class="form-field u-pt- u-mb0">
+								
+								<div class="float--left u-ml- pad10 wid100">
+								<legend class="u-m- u-mb- u-ml0">Create additional Cases to compare</legend>
+									<ol class="list-bare siteinfo configview"> 
+										<li class="form-field u-mb+">
+											<legend class="u-m- u-mb-- u-ml0">Configuration</legend>
+												<span class="form-field input-group">
+												  <select class="custsele">
+													<option>1×1</option>
+													<option>2×1</option>
+													<option>3×1</option>
+												  </select>
+											  </span>
+										</li>
+										<li class="form-field u-mb+">
+											<legend class="u-m- u-mb-- u-ml0">Gas Turbine</legend>
+												<span class="form-field input-group">
+												  <select class="custsele">
+													<option>9HA.01</option>
+													<option>9HA.02</option>
+												  </select>
+											  </span>
+										</li>
+										<li class="form-field u-mb+">
+											<legend class="u-m- u-mb-- u-ml0">Steam Turbine</legend>
+												<span class="form-field input-group">
+												  <select class="custsele">
+													<option>D650</option>
+													<option>A650</option>
+													<option>A651</option>
+													<option>A654</option>
+												  </select>
+											  </span>
+										</li>
+										<li class="form-field u-mb+">
+											<legend class="u-m- u-mb-- u-ml0">LSB</legend>
+												<span class="form-field input-group">
+												  <select class="custsele">
+													<option>LS335</option>
+													<option>LS37H</option>
+													<option>LS33G</option>
+													<option>LS41F</option>
+													<option>LS49B</option>
+													<option>LT37H</option>
+													<option>LT41H</option>
+													<option>LT33S</option>
+													<option>LT37C</option>
+													<option>LT49B</option>
+												  </select>
+											  </span>
+										</li>
+										<li class="form-field u-mb+">
+											<legend class="u-m- u-mb-- u-ml0">Condenser</legend>
+												<span class="form-field input-group">
+												  <select class="custsele">
+													<option>Water-Cooled Condenser Cooling tower</option>
+													<option>Water-cooled Condenser Direct Cooling</option>
+													<option>Air-Cooled Condenser</option>
+												  </select>
+											  </span>
+										</li>
+										<li class="form-field u-mb+">
+											<legend class="u-m- u-mb-- u-ml0"></legend>
+												<span class="form-field input-group" style="margin-top:24px;">
+													<button class="btn btn--small btn--primary nxtbtn fnt14 float--right btnprm u-mr-" type="button" id="" ng-click="">Add Case</button>
+													<button class="btn btn--small btn--primary nxtbtn fnt14 float--right btnprm u-mr- u-ml+" type="button" id="" ng-click="">Delete Case</button>
+											  </span>
+											
+										</li>
+									</ol>
+								</div>
+							  </fieldset>
+						</form>
+						<hr class="u-ml+ u-mr+">
+						<div class="float--left wid100 pad10">
+						<table class="table table-striped kpitab">
+									<thead>
+										<tr>
+										<th width="" style="" colspan=""><b class="clrblcl">KPIs</b></th>
+										<th width="" style="" colspan="" class=""><input type="checkbox" class="u-mr--"><b>Recommended Case</b></th>
+										<th width="" style=""><input type="checkbox" class="u-mr--"><b>Optional Case #1</b></th>
+										<th width="" style=""><input type="checkbox" class="u-mr--"><b>Optional Case #2</b></th>
+										<th width="" style="width:25% !important;"></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="">Output</td>
+											<td class="selection"></td>
+											<td class="">-1%</td>
+											<td class="">-2%</td>
+											<td class=""></td>
+										</tr>
+										<tr>
+											<td>Efficiency</td>
+											<td class="selectionmidd"></td>
+											<td class="">+5%</td>
+											<td class="">+3%</td>
+											<td class=""></td>
+										</tr>
+										<tr>
+											<td>Lifecycle Costs</td>
+											<td class="selectionmidd"></td>
+											<td class="">+6%</td>
+											<td class="">-6%</td>
+											<td class=""></td>
+										</tr>
+										<tr>
+											<td></td>
+											<td class="selectionmidd"></td>
+											<td class=""></td>
+											<td class=""></td>
+											<td class=""></td>
+										</tr>
+										<tr>
+											<td><b>Configuration</b></td>
+											<td class="selectionmidd"></td>
+											<td class="">+6%</td>
+											<td class="">-6%</td>
+											<td class=""></td>
+										</tr>
+										<tr>
+											<td>Arrangement</td>
+											<td class="selectionmidd">1x1</td>
+											<td class="">1x1</td>
+											<td class="">1x1</td>
+											<td class=""></td>
+										</tr>
+										<tr>
+											<td>Gas Turbine</td>
+											<td class="selectionmidd">9HA</td>
+											<td class="">9HA</td>
+											<td class="">9HA</td>
+											<td class=""></td>
+										</tr>
+										<tr>
+											<td>Steam Turbine</td>
+											<td class="selectionmidd">D651</td>
+											<td class="">D651</td>
+											<td class="">D651</td>
+											<td class=""></td>
+										</tr>
+										<tr>
+											<td>Last Stage Bucket</td>
+											<td class="selectionmidd">LT37CS</td>
+											<td class="">LT37CS</td>
+											<td class="">LT37CS</td>
+											<td class=""></td>
+										</tr>
+										<tr>
+											<td>Condenser</td>
+											<td class="selectionbot">WCC-CT</td>
+											<td class="">WCC-CT</td>
+											<td class="">WCC-CT</td>
+											<td class=""></td>
+										</tr>
+									</tbody>
+							</table>
+						</div>	
+<!-- 							<div class="btn-group u-mt+ u-mb-- float--right u-mt+ u-mb-- padrgt10">
+									<legend class="pcleg u-mb0 float--left">KPI Values</legend>
+								  <button class="btn input-group__addon" type="button">Abs</button>
+								  <button class="btn input-group__addon" type="button">σ</button>
+								  <button class="btn btn--primary input-group__addon" type="button">%</button>
+							</div> -->
+					</div>	
+					
+					<div class="float--left u-pt+ u-pb+ bgw u-mb+ u-mt+ navigate" style="width:100%">
+					<hr>
+									<button class="btn btn--small btn--primary nxtbtn fnt14 float--right btnprm u-mr-" type="button" id="nxt" ng-click="">Run Selected Cases</button>
+									<button class="btn btn--small fnt14 float--left btnprm u-ml0" type="button" id="" ng-click="">Back</button>
+					</div>	
+						</div>
+						<div class="u-ml+ u-mb+ float--left wid100 padrgt15">
+							<h5 class="epsilon u-mb0 u-ml- fntnrm mrgtop15">Review and Compare your selected Cases</h5>
+							<div class="pad10 float--left wid100">
+								<div class="wid100 float--left pad10">
+									<div class="btn-group u-mt+ u-mb-- float--left" style="width:50%;">
+										  <button class="btn btn--primary input-group__addon" type="button"><i class="fa fa-bar-chart clrwht" aria-hidden="true"></i></button>
+										  <button class="btn input-group__addon" type="button"><i class="fa fa-table" aria-hidden="true"></i></button>
+									</div>
+									<div class="btn-group u-mt+ u-mb-- float--right">
+											<legend class="pcleg u-mb0">KPI Values</legend>
+										  <button class="btn input-group__addon" type="button">Abs</button>
+										  <button class="btn input-group__addon" type="button">σ</button>
+										  <button class="btn btn--primary input-group__addon" type="button">%</button>
+									</div>
+								</div>
+								<hr>
+								<div class="float--left wid100 pad10">
+									<table class="table table-striped kpitab">
+									<thead>
+										<tr>
+										<th width="" style="" colspan=""></th>
+										<th width="" style="" colspan=""><b class="clrblcl">Rankings</b></th>
+										<th width="" style="" colspan="" class=""><input type="checkbox" class="u-mr--"><b>Recommended Case</b></th>
+										<th width="" style=""><input type="checkbox" class="u-mr--"><b>Optional Case #1</b></th>
+										<th width="" style=""><input type="checkbox" class="u-mr--"><b>Optional Case #2</b></th>
+										<th width="" style="width:25% !important;"></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Output</td>
+											<td class="">10</td>
+											<td class="selection">0</td>
+											<td class="warn">-1%</td>
+											<td class="warn">-1%</td>
+											<td class=""></td>
+										</tr>
+										<tr>
+											<td>Efficiency</td>
+											<td>9</td>
+											<td class="selectionmidd">0</td>
+											<td class="suces">+5%</td>
+											<td class="suces">+3%</td>
+											<td class=""></td>
+										</tr>
+										<tr>
+											<td>Lifecycle Costs</td>
+											<td>8</td>
+											<td class="selectionmidd">0</td>
+											<td class="warn">+6%</td>
+											<td class="warn">-6%</td>
+											<td class=""></td>
+										</tr>
+										<tr>
+											<td>Overall Reilability</td>
+											<td>7</td>
+											<td class="selectionmidd">0</td>
+											<td class="warn">-1%</td>
+											<td class="warn">-1%</td>
+											<td class=""></td>
+										</tr>
+										<tr>
+											<td>Emissions</td>
+											<td>6</td>
+											<td class="selectionmidd">0</td>
+											<td class="suces">+5%</td>
+											<td class="suces">+5%</td>
+											<td class=""></td>
+										</tr>
+										<tr>
+											<td>Startup Time</td>
+											<td>5</td>
+											<td class="selectionmidd">0</td>
+											<td class="warn">-6%</td>
+											<td class="warn">-6%</td>
+											<td class=""></td>
+										</tr>
+										<tr>
+											<td>Availability</td>
+											<td>4</td>
+											<td class="selectionmidd">0</td>
+											<td class="warn">-1%</td>
+											<td class="warn">-1%</td>
+											<td class=""></td>
+										</tr>
+										<tr>
+											<td>Installation Cost</td>
+											<td>3</td>
+											<td class="selectionmidd">0</td>
+											<td class="suces">+5%</td>
+											<td class="suces">+5%</td>
+											<td class=""></td>
+										</tr>
+										<tr>
+											<td>Construction Schedule</td>
+											<td>2</td>
+											<td class="selectionmidd">0</td>
+											<td class="warn">-6%</td>
+											<td class="warn">-6%</td>
+											<td class=""></td>
+										</tr>
+										<tr>
+											<td>Footprint</td>
+											<td>1</td>
+											<td class="selectionbot">0</td>
+											<td class="warn">-1%</td>
+											<td class="warn">-1%</td>
+											<td class=""></td>
+										</tr>
+									</tbody>
+							</table>
+								<div class="u-mt+">
+									<legend class="pcleg u-mb+">More Details</legend>
+									<button class="accordion"><span class="u-ml--">Economic</span></button>
+									<div class="panel">
+									  <p>Economic</p>
+									</div>
+									
+									<button class="accordion"><span class="u-ml--">Performance</span></button>
+									<div class="panel">
+									  <p>Performance</p>
+									</div>
+
+									<button class="accordion"><span class="u-ml--">Pricing</span></button>
+									<div class="panel">
+									  <p>Pricing</p>
+									</div>
+								</div>
+							</div>	
+						</div>
+						<div class="float--left u-pt+ u-pb+ bgw u-mb+ u-mt+ navigate" style="width:100%">
+						<hr>
+									<button class="btn btn--small btn--primary nxtbtn fnt14 float--right btnprm u-mr-" type="button" id="nxt" ng-click=""> Finish</button>
+									<button class="btn btn--small fnt14 float--left btnprm u-ml0" type="button" id="" ng-click="">Back</button>
+						</div>						
+						</div>
+						<div class="u-ml+ u-mb+ float--left wid100 padrgt15">
+							<h5 class="epsilon u-mb0 u-ml- fntnrm mrgtop15 float--left" style="width:50%;">Review  Final Solution</h5>
+							<select class="custsele float--right mrgtop15">
+								<option>Performance Templates</option>
+							</select>
+							
+							<div class="pad10 float--left wid100">
+							<hr>
+								<div class="wid100 float--left">
+									<div class="btn-group u-mt-- u-mb-- float--left" style="width:50%;">
+										  <button class="btn btn--small fnt14 float--left btnprm u-mr+" type="button" id="" ng-click="">Heat & Mass Balance</button>
+									</div>
+									<div class="btn-group u-mt-- u-mb-- float--right">
+											<button class="btn btn--small fnt14 float--left btnprm u-mr+" type="button" id="" ng-click="">Excel Export</button>
+											<button class="btn btn--small fnt14 float--left btnprm" type="button" id="" ng-click="">PDF Export</button>
+									</div>
+								</div>
+								
+								<div class="float--left wid100 pad10">
+								<div class="u-mt+">
+									<legend class="pcleg u-mb+">Solution Details</legend>
+									<button class="accordion"><span class="u-ml--">Site Information</span></button>
+									<div class="panel">
+										  <table class="table table-striped mrgbtm10">
+											<tbody>
+												<tr>
+													<td class="brdtpnon">Location</td>
+													<td class="">Atlanta, Gerogia</td>
+												</tr>
+												<tr>
+													<td class="">Ambient Temp</td>
+													<td class="">86 F</td>
+												</tr>
+												<tr>
+													<td class="">Relative Humidity</td>
+													<td class="">60%</td>
+												</tr>
+												<tr>
+													<td class="">Altitude</td>
+													<td class="">50.M</td>
+												</tr>
+												<tr>
+													<td class="">Fuel Price</td>
+													<td class="">5 $/MWH</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									
+									<button class="accordion"><span class="u-ml--">Plant Requirements</span></button>
+									<div class="panel">
+									  <p>Plant Requirements</p>
+									</div>
+
+									<button class="accordion"><span class="u-ml--">Business Profile</span></button>
+									<div class="panel">
+									  <p>Business Profile</p>
+									</div>
+									
+									<button class="accordion"><span class="u-ml--">Financial Data</span></button>
+									<div class="panel">
+									  <p>Financial Data</p>
+									</div>
+									
+									<button class="accordion"><span class="u-ml--">Configuration</span></button>
+									<div class="panel">
+									  <p>Configuration</p>
+									</div>
+									
+									<button class="accordion"><span class="u-ml--">KPI's</span></button>
+									<div class="panel">
+									  <p>KPI's</p>
+									</div>
+									
+									<button class="accordion"><span class="u-ml--">Economic</span></button>
+									<div class="panel">
+									  <p>Economic</p>
+									</div>
+									
+									<button class="accordion"><span class="u-ml--">Performance</span></button>
+									<div class="panel">
+									  <p>Performance</p>
+									</div>
+									
+									<button class="accordion"><span class="u-ml--">Pricing</span></button>
+									<div class="panel">
+									  <p>Pricing</p>
+									</div>
+								</div>
+							</div>	
+						</div>	
+						<div class="float--left u-pt+ u-pb+ bgw u-mb+ u-mt+ navigate" style="width:100%">
+						<hr>
+									<button class="btn btn--small btn--primary nxtbtn fnt14 float--right btnprm u-mr-" type="button" id="nxt" ng-click="">Save</button>
+									<button class="btn btn--small fnt14 float--left btnprm u-ml0" type="button" id="" ng-click="">Back</button>
+					</div>
+						</div>
+					</px-tab-pages>
+			</px-card>
+		</section>
+	</template>
+</dom-module>
+
+<script>
+	Polymer({
+	is: 'demo-custom-tabs',
+	properties: {
+	selected: {
+	type: String
+	}
+	},
+	ready: function() {
+	this.selected = 0;
+	}
+	});
+	$(document).ready(function() {
+		$('#tab1,#tab2,#tab3').click(function(){
+			$('#sitedata').show();
+		});
+		$('#tab4,#tab5,#tab6').click(function(){
+			$('#sitedata').hide();
+		});
+					
+	});
+	var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].onclick = function(){
+        this.classList.toggle("active");
+        this.nextElementSibling.classList.toggle("show");
+  }
+}
+</script>
+	

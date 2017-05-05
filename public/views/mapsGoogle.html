@@ -1,0 +1,135 @@
+<div>		 
+
+<div><span style="width: 6em; z-index: 100; text-align: center; color: white"
+        id="message"></span></div>
+<div id="map_div" style="width: 100%; height: 900px;"></div>
+		
+
+    <span  style="top: 0px; left: 12em; width: 4em; background-color: red"  >
+		
+</div>
+<script>
+ 
+      var gTheMap;
+        var marker1;
+        var marker2;
+
+        $(document).ready(DocLoaded);
+
+        function DocLoaded()
+        {
+            // golf course coordinates
+            var StartLat = 44.924254;
+            var StartLng = -93.366859;
+
+            // what element to display the map in
+            var mapdiv = $("#map_div")[0];
+
+            // where on earth the map should display
+            var StartPoint = new google.maps.LatLng(StartLat, StartLng);
+           
+            // create the map
+            gTheMap = new google.maps.Map(mapdiv, 
+                {
+                    center: StartPoint,
+                    zoom: 18,
+                    mapTypeId: google.maps.MapTypeId.SATELLITE
+                });
+
+            // place two markers
+            marker1 = PlaceMarker(new google.maps.LatLng(StartLat, StartLng + .0001));
+            marker2 = PlaceMarker(new google.maps.LatLng(StartLat, StartLng - .0001));
+
+            DragEnd(null);
+        }
+
+
+         //create marker
+
+
+ function createMarker(width, height, radius) {
+
+          var canvas, context;
+
+          canvas = document.createElement("canvas");
+          canvas.width = width;
+          canvas.height = height;
+
+          context = canvas.getContext("2d");
+
+          context.clearRect(0,0,width,height);
+
+          // background is yellow
+          context.fillStyle = "rgba(255,255,0,1)";
+
+          // border is black
+          context.strokeStyle = "rgba(0,0,0,1)";
+
+          context.beginPath();
+          context.moveTo(radius, 0);
+          context.lineTo(width - radius, 0);
+          context.quadraticCurveTo(width, 0, width, radius);
+          context.lineTo(width, height - radius);
+          context.quadraticCurveTo(width, height, width - radius, height);
+          context.lineTo(radius, height);
+          context.quadraticCurveTo(0, height, 0, height - radius);
+          context.lineTo(0, radius);
+          context.quadraticCurveTo(0, 0, radius, 0);
+          context.closePath();
+
+          context.fill();
+          context.stroke();
+
+          return canvas.toDataURL();
+
+        }
+
+
+
+
+
+
+        // ---- PlaceMarker ------------------------------------
+
+        function PlaceMarker(location)
+        {
+            var marker = new google.maps.Marker(
+                {
+                    position: location,
+                    map: gTheMap,
+                    draggable: true,
+                      icon: createMarker(25, 25, 4)
+                });
+            marker.addListener('dragend', DragEnd);
+            return marker;
+        }
+
+        // ---- DragEnd -------------------------------------------
+
+        var gLine = null;
+
+        function DragEnd(Event)
+        {
+            var meters = google.maps.geometry.spherical.computeDistanceBetween(marker1.position, marker2.position);
+            var yards = meters * 1.0936133;
+            $("#message").text(yards.toFixed(1) + ' yards');
+
+            // draw a line connecting the points
+            var Endpoints = [marker1.position, marker2.position];
+
+            if (gLine == null)
+            {
+                gLine = new google.maps.Polyline(
+                    {   path: Endpoints,
+                        strokeColor: "#FFFF00",
+                        strokeOpacity: 1.0,
+                        strokeWeight: 2,
+                        map: gTheMap
+                    });
+            }
+            else
+               gLine.setPath(Endpoints);
+        }
+    </script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBciUW4nSe_YHfmi3Go2Xqbku_MBA-fwm4&callback=initMap"
+    async defer></script> -->

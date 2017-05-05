@@ -1,0 +1,50 @@
+<div>
+<px-card header-text class="u-pb- u-pt- u-pr-- u-mb0 brdbtm">
+	<div class="float--left" style="width:50%">
+		<h5 class="epsilon u-ml0 u-mt0 u-pt- u-mb-">Plant Configurator</h5>
+	</div>
+	<div class="float--left u-mt--" style="width:50%">
+		<button class="btn btn--small btn--primary nxtbtn fnt14 float--right btnprm u-mr-" type="button" id="" ng-click="">Run Selected Cases</button>
+		<button class="btn btn--small fnt14 float--right btnprm u-mr+" type="button" id="" ng-click="">Back</button>
+	</div>
+</px-card>
+<px-card header-text class="u-pb0 u-pr0 bgktran u-mb0 u-pl-">
+	<div class="layout full-height">
+		<div class="layout__item u-p u-pt+ u-pr0 u-pb0 u-1/1 bgw" id="">
+			<demo-custom-tabs1></demo-custom-tabs1>		
+		</div> 
+		</div>
+</px-card>	
+<dom-module id="demo-custom-tabs1">
+	<template>
+		<section>
+			<px-card header-text class="u-pb0 u-pr0 u-mb0 u-mr0">
+				<!-- <div class="float--left" style="width:50%"> -->
+					<px-tab-set id="tab-set1"  bare="true" selected="{{selected}}">
+						<px-tab id="tab6">Site Placement</px-tab>
+					</px-tab-set>
+					<px-tab-pages selected="{{selected}}">
+						
+						<div class="prjkpi u-ml+">
+							<p>Site Placement</p>
+						</div>
+					</px-tab-pages>
+			</px-card>
+		</section>
+	</template>
+</dom-module>
+
+<script>
+	Polymer({
+	is: 'demo-custom-tabs1',
+	properties: {
+	selected: {
+	type: String
+	}
+	},
+	ready: function() {
+	this.selected = 0;
+	}
+	});
+</script>
+	
